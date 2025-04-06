@@ -6,5 +6,9 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  root "home#index"
+  root "home#index" ## TODO
+
+  get    '/login',  to: 'sessions#new'
+  post   '/login',  to: 'sessions#log_in'
+  delete '/logout', to: 'sessions#log_out'
 end
