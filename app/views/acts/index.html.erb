@@ -1,10 +1,15 @@
 <h1>Results</h1>
 
 <table>
-<%= @acts.each do |a| %>
 <tr>
-<td>a.name</td>
-<td>a.votes</td>
+<th>Name</th>
+<th>Votes</th>
+</tr>
+<% @acts.each do |a| %>
+<tr>
+<td><%= a.name %></td>
+<td><%= a.votes %></td>
+</tr>
 <% end %>
 </table>
 

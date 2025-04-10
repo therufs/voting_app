@@ -10,6 +10,17 @@
     <%= javascript_pack_tag "application" %>
   </head>
 
+  <% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+  <% end %>
+  <% if active_user %>
+  Logged in as <%= active_user[:email] %>
+  <%#= link_to 'Log out', logout_path, data: { "turbo-method": :delete } %>
+  <%#= link_to 'Log out', logout_path, method: :delete %>
+  <%= button_to 'Log out', logout_path, method: :delete %> <%## the only one that works i guess %>
+  <% else %>
+  <%= link_to 'Log in', login_path, method: :get %>
+  <% end %>
   <body>
     <%= yield %>
   </body>
